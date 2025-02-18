@@ -245,6 +245,16 @@ public class BST<E extends Comparable<E>> {
 
 	// ----------------------- OPGAVE 2 ------------------------------
 
+	/**
+	 * Returns a list containing all elements in the binary search tree in inorder
+	 * traversal.
+	 * The elements are visited in ascending order: left subtree, root, right
+	 * subtree.
+	 * 
+	 * @return an ArrayList containing all elements in the binary search tree in
+	 *         inorder traversal
+	 * @throws NullPointerException if the tree is empty (root is null)
+	 */
 	public List<E> inorderList() {
 		List<E> list = new ArrayList<>();
 
@@ -262,6 +272,14 @@ public class BST<E extends Comparable<E>> {
 		return list;
 	}
 
+	/**
+	 * Helper method for the inorder traversal of the binary search tree.
+	 * Recursively traverses the tree in inorder (left-root-right) and adds elements
+	 * to the provided list.
+	 *
+	 * @param list The list to store the elements in inorder traversal
+	 * @param node The current node being processed in the traversal
+	 */
 	private void inorderList(List<E> list, TreeNode node) {
 		TreeNode current = node;
 
