@@ -4,15 +4,10 @@ public class App {
 
 		BST<Integer> bst = new BST<>();
 
-		bst.insert(45);
-		bst.insert(22);
-		bst.insert(77);
-		bst.insert(11);
-		bst.insert(30);
-		bst.insert(15);
-		bst.insert(25);
-		bst.insert(90);
-		bst.insert(88);
+		int[] values = {45, 22, 77, 11, 30, 15, 25, 90, 88};
+		for (int value : values) {
+			bst.insert(value);
+		}
 
 		/*
 		 * PREORDER:

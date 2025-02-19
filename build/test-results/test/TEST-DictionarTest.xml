@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DictionarTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-02-19T10:57:34" hostname="Madss-MacBook-Pro.local" time="0.035">
+  <properties/>
+  <testcase name="test()" classname="DictionarTest" time="0.035">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at app//org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at app//org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
+	at app//DictionarTest.test(DictionarTest.java:19)
+	at java.base@23.0.1/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base@23.0.1/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base@23.0.1/java.util.ArrayList.forEach(ArrayList.java:1597)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

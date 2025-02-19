@@ -30,13 +30,13 @@ java {
         languageVersion.set(JavaLanguageVersion.of(23))
     }
     sourceSets["main"].java {
-        setSrcDirs(listOf("Lektion2")) // Points to Application/src as the source directory
+        setSrcDirs(listOf("Lektion3")) // Points to Application/src as the source directory
     }
     sourceSets["main"].resources {
         setSrcDirs(listOf("Application/resources")) // Points to Application/resources as the resources directory
     }
     sourceSets["test"].java {
-        setSrcDirs(listOf("Application/Test")) // Configure test directory if applicable
+        setSrcDirs(listOf("Test")) // Configure test directory if applicable
     }
 }
 
