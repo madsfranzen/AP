@@ -134,7 +134,21 @@ public class DictionaryBST<K extends Comparable<K>, V> implements Dictionary<K, 
 		return oldValue;
 	}
 
-	// Method to remove a key-value pair from the tree
+	/**
+	 * Removes the entry with the specified key from the binary search tree.
+	 * 
+	 * @param key The key of the entry to be removed
+	 * @return The value associated with the removed key, or null if the key was not found
+	 * 
+	 * The method handles four cases:
+	 * 0. Node to be rmoved has no children at all
+	 * 1. Node to be removed has no left child
+	 * 2. Node to be removed has no right child
+	 * 3. Node to be removed has both children
+	 * 
+	 * In case 3, the method finds the rightmost node in the left subtree (predecessor)
+	 * to replace the node being removed, maintaining the binary search tree properties.
+	 */
 	@Override
 	public V remove(K key) {
 		V removedV = null; // Variable to store the value of the removed node
@@ -159,10 +173,22 @@ public class DictionaryBST<K extends Comparable<K>, V> implements Dictionary<K, 
 		// Node to be removed is found
 		removedV = current.value;
 
+		// Case 0: Node has no children
+		if (current.left == null && current.right == null) {
+			if (parent == null) {
+				root = null;
+			} else {
+				if (key.compareTo(parent.key) < 0) {
+					parent.left = null;
+				} else {
+					parent.right = null;
+				}
+			}
+		}
+
 		// Case 1: Node has no left child
 		if (current.left == null) {
 			if (parent == null) {
-				// Removing the root node
 				root = current.right;
 			} else {
 				if (key.compareTo(parent.key) < 0) {
@@ -175,7 +201,6 @@ public class DictionaryBST<K extends Comparable<K>, V> implements Dictionary<K, 
 		// Case 2: Node has a left child
 		else if (current.right == null) {
 			if (parent == null) {
-				// Removing the root node
 				root = current.left;
 			} else {
 				if (key.compareTo(parent.key) < 0) {
