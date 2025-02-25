@@ -1,0 +1,21 @@
+# Gradle files
+.gradle/
+build/
+gradle/
+gradlew
+gradlew.bat
+
+# IDE settings
+.settings/
+.project
+.classpath
+
+# VS Code
+.vscode/
+*.code-workspace
+.history/
+
+# General
+*.log
+.DS_Store
+.gradle/8.9/checksums/checksums.lock
