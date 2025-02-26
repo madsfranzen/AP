@@ -28,11 +28,7 @@ public class DictionaryBST<K extends Comparable<K>, V> implements Dictionary<K, 
 	@Override
 	public V get(K key) {
 		Node n = find(key); // Find the node with the given key
-		if (n == null) {
-			return null; // Return null if key is not found
-		} else {
-			return n.value; // Return the value if key is found
-		}
+		return find(key) == null ? null : n.value; // Return null if key not found, otherwise return the value
 	}
 
 	// Helper method to find a node with a given key
@@ -49,21 +45,13 @@ public class DictionaryBST<K extends Comparable<K>, V> implements Dictionary<K, 
 				current = current.right; // Move to the right child if the key is larger
 			}
 		}
-		if (found) {
-			return current; // Return the node if key is found
-		} else {
-			return null; // Return null if key is not found
-		}
+		// return the node if found, otherwise return null
+		return found ? current : null;
 	}
 
-	// Method to check if the tree is empty
 	@Override
 	public boolean isEmpty() {
-		if (size() == 0) {
-			return true; // Return true if the tree is empty
-		} else {
-			return false; // Return false if the tree is not empty
-		}
+		return size() == 0;
 	}
 
 	/**
@@ -108,12 +96,15 @@ public class DictionaryBST<K extends Comparable<K>, V> implements Dictionary<K, 
 
 		// If we've reached a null child, this is where we insert the new node
 		if (child == null) {
-			if (goRight) {
+
+			if (child == null && goRight) {
 				parent.right = new Node(key, value);
 			} else {
 				parent.left = new Node(key, value);
 			}
+
 			return null;
+
 		} else {
 			// Otherwise, continue searching in the appropriate subtree
 			return put(key, value, child);
@@ -138,16 +129,19 @@ public class DictionaryBST<K extends Comparable<K>, V> implements Dictionary<K, 
 	 * Removes the entry with the specified key from the binary search tree.
 	 * 
 	 * @param key The key of the entry to be removed
-	 * @return The value associated with the removed key, or null if the key was not found
+	 * @return The value associated with the removed key, or null if the key was not
+	 *         found
 	 * 
-	 * The method handles four cases:
-	 * 0. Node to be rmoved has no children at all
-	 * 1. Node to be removed has no left child
-	 * 2. Node to be removed has no right child
-	 * 3. Node to be removed has both children
+	 *         The method handles four cases:
+	 *         0. Node to be rmoved has no children at all
+	 *         1. Node to be removed has no left child
+	 *         2. Node to be removed has no right child
+	 *         3. Node to be removed has both children
 	 * 
-	 * In case 3, the method finds the rightmost node in the left subtree (predecessor)
-	 * to replace the node being removed, maintaining the binary search tree properties.
+	 *         In case 3, the method finds the rightmost node in the left subtree
+	 *         (predecessor)
+	 *         to replace the node being removed, maintaining the binary search tree
+	 *         properties.
 	 */
 	@Override
 	public V remove(K key) {
@@ -251,5 +245,4 @@ public class DictionaryBST<K extends Comparable<K>, V> implements Dictionary<K, 
 		}
 		return 1 + size(root.left) + size(root.right); // Return the size of the subtree
 	}
-
 }

@@ -352,7 +352,7 @@ public class BST<E extends Comparable<E>> {
 		} else {
 			parent.right = current.left;
 		}
-		
+
 		size++;
 		return true;
 	}
@@ -372,8 +372,7 @@ public class BST<E extends Comparable<E>> {
 
 		if (parent == null) {
 			root = current.right;
-		}
-		else {
+		} else {
 			parent.left = current.right;
 		}
 
@@ -381,40 +380,76 @@ public class BST<E extends Comparable<E>> {
 		return true;
 	}
 
-		public int greaterThanCountRecursive(E element) {
-			return greaterThanCountRecursive(element, root);
-		}
-
-		private int greaterThanCountRecursive(E element, TreeNode node) {
-		if (node == null) {
-			return 0;
-		}
-		
-		if (node.element.compareTo(element) > 0) {
-			return 1 + greaterThanCountRecursive(element, node.right) + 
-					greaterThanCountRecursive(element, node.left);
-		} else {
-			return greaterThanCountRecursive(element, node.right);
-		}
+	/**
+	 * Public method that counts all elements in the BST greater than the specified element.
+	 * @param element The element to compare against
+	 * @return The count of elements greater than the specified element
+	 */
+	public int greaterThanCountRecursive(E element) {
+	    // Call the private helper method starting from the root node
+	    return greaterThanCountRecursive(element, root);
 	}
 
-		public List<E> greaterThanRecursive(E element) {
-			ArrayList<E> list = new ArrayList<>();
-			greaterThanRecursive(element, root, list);
-			return list;
-		}
+	/**
+	 * Private recursive helper method to count elements greater than the specified element.
+	 * @param element The element to compare against
+	 * @param node The current node being examined
+	 * @return Count of elements greater than the specified element in the subtree
+	 */
+	private int greaterThanCountRecursive(E element, TreeNode node) {
+	    if (node == null) {
+	        // Base case: reached a null node, return 0
+	        return 0;
+	    }
 
-		private void greaterThanRecursive(E element, TreeNode node, List<E> list) {
-		if (node == null) {
-			return;
-		}
-		
-		if (node.element.compareTo(element) > 0) {
-			list.add(node.element);
-			greaterThanRecursive(element, node.right, list);
-			greaterThanRecursive(element, node.left, list);
-		} else {
-			greaterThanRecursive(element, node.right, list);
-		}
+	    if (node.element.compareTo(element) > 0) {
+	        // Current node's element is greater than the input element
+	        // Count this node (1) plus all greater elements in left and right subtrees
+	        return 1 + greaterThanCountRecursive(element, node.right) +
+	                greaterThanCountRecursive(element, node.left);
+	    } else {
+	        // Current node's element is less than or equal to input element
+	        // Only check the right subtree (which contains larger values)
+	        return greaterThanCountRecursive(element, node.right);
+	    }
+	}
+
+	/**
+	 * Public method that collects all elements greater than the specified element into a list.
+	 * @param element The element to compare against
+	 * @return A list containing all elements greater than the specified element
+	 */
+	public List<E> greaterThanRecursive(E element) {
+	    // Initialize result list
+	    ArrayList<E> list = new ArrayList<>();
+	    // Call private helper method to populate the list
+	    greaterThanRecursive(element, root, list);
+	    return list;
+	}
+
+	/**
+	 * Private recursive helper method to collect elements greater than the specified element.
+	 * @param element The element to compare against
+	 * @param node The current node being examined
+	 * @param list The list to store elements greater than the input element
+	 */
+	private void greaterThanRecursive(E element, TreeNode node, List<E> list) {
+	    if (node == null) {
+	        // Base case: reached a null node, nothing to add
+	        return;
+	    }
+
+	    if (node.element.compareTo(element) > 0) {
+	        // Current node's element is greater than the input element
+	        // Add the current element to the result list
+	        list.add(node.element);
+	        // Continue searching in both left and right subtrees
+	        greaterThanRecursive(element, node.right, list);
+	        greaterThanRecursive(element, node.left, list);
+	    } else {
+	        // Current node's element is less than or equal to input element
+	        // Only check the right subtree (which contains larger values)
+	        greaterThanRecursive(element, node.right, list);
+	    }
 	}
 }
