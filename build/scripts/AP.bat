@@ -70,7 +70,7 @@ goto fail
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\AP.jar;%APP_HOME%\lib\guava-32.0.1-jre.jar;%APP_HOME%\lib\javafx-fxml-23-mac.jar;%APP_HOME%\lib\javafx-web-23-mac.jar;%APP_HOME%\lib\javafx-controls-23-mac.jar;%APP_HOME%\lib\javafx-media-23-mac.jar;%APP_HOME%\lib\javafx-swing-23-mac.jar;%APP_HOME%\lib\javafx-graphics-23-mac.jar;%APP_HOME%\lib\javafx-base-23-mac.jar;%APP_HOME%\lib\failureaccess-1.0.1.jar;%APP_HOME%\lib\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;%APP_HOME%\lib\jsr305-3.0.2.jar;%APP_HOME%\lib\checker-qual-3.33.0.jar;%APP_HOME%\lib\error_prone_annotations-2.18.0.jar;%APP_HOME%\lib\j2objc-annotations-2.8.jar
+set CLASSPATH=%APP_HOME%\lib\AP.jar;%APP_HOME%\lib\guava-32.0.1-jre.jar;%APP_HOME%\lib\javafx-fxml-23-mac-aarch64.jar;%APP_HOME%\lib\javafx-web-23-mac-aarch64.jar;%APP_HOME%\lib\javafx-controls-23-mac-aarch64.jar;%APP_HOME%\lib\javafx-media-23-mac-aarch64.jar;%APP_HOME%\lib\javafx-swing-23-mac-aarch64.jar;%APP_HOME%\lib\javafx-graphics-23-mac-aarch64.jar;%APP_HOME%\lib\javafx-base-23-mac-aarch64.jar;%APP_HOME%\lib\failureaccess-1.0.1.jar;%APP_HOME%\lib\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;%APP_HOME%\lib\jsr305-3.0.2.jar;%APP_HOME%\lib\checker-qual-3.33.0.jar;%APP_HOME%\lib\error_prone_annotations-2.18.0.jar;%APP_HOME%\lib\j2objc-annotations-2.8.jar
 
 
 @rem Execute AP

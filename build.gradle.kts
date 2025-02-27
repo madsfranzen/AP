@@ -8,9 +8,9 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.1")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
     implementation("com.google.guava:guava:32.0.1-jre")
     implementation("org.openjfx:javafx-controls:23")
     implementation("org.openjfx:javafx-fxml:23")
@@ -30,13 +30,13 @@ java {
         languageVersion.set(JavaLanguageVersion.of(23))
     }
     sourceSets["main"].java {
-        setSrcDirs(listOf("Lektion3","Lektion4")) // Points to Application/src as the source directory
+        setSrcDirs(listOf("Lektion4"))
     }
     sourceSets["main"].resources {
-        setSrcDirs(listOf("Application/resources")) // Points to Application/resources as the resources directory
+        setSrcDirs(listOf("Application/resources"))
     }
     sourceSets["test"].java {
-        setSrcDirs(listOf("Test")) // Configure test directory if applicable
+        setSrcDirs(listOf("Test/Opgave2"))
     }
 }
 

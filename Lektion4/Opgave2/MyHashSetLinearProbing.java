@@ -8,7 +8,6 @@ public class MyHashSetLinearProbing<E> implements MySet<E> {
     private int size;
 
     private final E DELETED = (E)new Object();
-
     /**
      * Constructs a hash table.
      *
@@ -29,14 +28,26 @@ public class MyHashSetLinearProbing<E> implements MySet<E> {
     @Override
     /** Return true if the element is in the set */
     public boolean contains(E e) {
-        // TODO
+        int hash = hash(e.hashCode());
+        int startHash = hash;
+        
+        while (table[hash] != null) {
+            if (table[hash] != DELETED && table[hash].equals(e)) {
+                return true;
+            }
+            hash = (hash + 1) % table.length;
+            if (hash == startHash) break;
+        }
         return false;
     }
 
     @Override
     /** Remove all elements from this set */
     public void clear() {
-        // TODO
+        for (int i = 0; i < table.length; i++) {
+            table[i] = null;
+        }
+        size = 0;
     }
 
     /**
@@ -45,8 +56,21 @@ public class MyHashSetLinearProbing<E> implements MySet<E> {
      * @return true if e is a new object, false if e was already in the set
      */
     public boolean add(E e) {
-        // TODO
-        return false;
+        if (contains(e)) {
+            return false;
+        }
+
+        int hash = hash(e.hashCode());
+        int startHash = hash;
+        
+        while (table[hash] != null && table[hash] != DELETED) {
+            hash = (hash + 1) % table.length;
+            if (hash == startHash) return false; // table is full
+        }
+        
+        table[hash] = e;
+        size++;
+        return true;
     }
 
     /**
@@ -56,15 +80,25 @@ public class MyHashSetLinearProbing<E> implements MySet<E> {
      * element of this set
      */
     public boolean remove(E e) {
-        // TODO
+        int hash = hash(e.hashCode());
+        int startHash = hash;
+        
+        while (table[hash] != null) {
+            if (table[hash] != DELETED && table[hash].equals(e)) {
+                table[hash] = DELETED;  // Mark as deleted instead of null
+                size--;
+                return true;
+            }
+            hash = (hash + 1) % table.length;
+            if (hash == startHash) break;
+        }
         return false;
     }
 
     @Override
     /** Return the number of elements in the set */
     public int size() {
-        // TODO
-        return -1;
+        return size;
     }
 
     @Override
