@@ -1,21 +1,18 @@
-# Gradle files
+# Gradle
 .gradle/
 build/
-gradle/
-gradlew
-gradlew.bat
-
-# IDE settings
-.settings/
+gradle-app.setting
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+.gradletasknamecache
+**/build/
 .project
 .classpath
+bin/
 
-# VS Code
-.vscode/
-*.code-workspace
-.history/
-
-# General
-*.log
-.DS_Store
-.gradle/8.9/checksums/checksums.lock
+# Gradle IDE-specific files
+.idea/
+*.iml
+*.iws
+*.ipr
+.settings/
