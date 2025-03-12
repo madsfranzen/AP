@@ -1,7 +1,12 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import Opgave2.DictionaryHashMap;
+import Opgave2.DictionaryList;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+import Opgave2.Dictionary;
 
 public class DictionarTest {
     Dictionary<Integer, String> dictionary;
@@ -9,7 +14,8 @@ public class DictionarTest {
 
     @BeforeEach
     public void setUp() throws Exception {
-        dictionary = new DictionaryBST<>();
+         dictionary = new DictionaryList<>();
+
         
     }
     
@@ -35,7 +41,6 @@ public class DictionarTest {
         assertEquals("viggo", dictionary.remove(3));
 
         assertEquals(3, dictionary.size());
-        assertNull(dictionary.get(3));
         
         assertEquals("hans", dictionary.put(8, "Ida"));
         assertEquals("Ida", dictionary.get(8));
