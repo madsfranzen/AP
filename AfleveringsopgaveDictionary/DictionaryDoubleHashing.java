@@ -1,4 +1,3 @@
-package afleveringstuderende;
 
 public class DictionaryDoubleHashing <K, V> implements Dictionary<K, V> {
     private Entry<K,V>[] table;
@@ -20,8 +19,7 @@ public class DictionaryDoubleHashing <K, V> implements Dictionary<K, V> {
 
     @Override
     public boolean isEmpty() {
-        //TODO
-        return false;
+        return size == 0;
     }
 
     @Override
@@ -38,8 +36,7 @@ public class DictionaryDoubleHashing <K, V> implements Dictionary<K, V> {
 
     @Override
     public int size() {
-        //TODO
-        return 0;
+        return size;
     }
 
 

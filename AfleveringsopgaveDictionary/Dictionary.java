@@ -1,4 +1,3 @@
-package afleveringstuderende;
 
 public interface Dictionary<K, V> {
 
