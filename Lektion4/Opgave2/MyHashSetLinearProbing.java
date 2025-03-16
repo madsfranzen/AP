@@ -3,6 +3,7 @@ package Opgave2;
 /**
  * This class implements a hash set using separate chaining.
  */
+ @SuppressWarnings("unchecked")
 public class MyHashSetLinearProbing<E> implements MySet<E> {
     private E[] table;
     private int size;
@@ -115,6 +116,4 @@ public class MyHashSetLinearProbing<E> implements MySet<E> {
             System.out.println(i + "\t" + table[i]);
         }
     }
-
-
 }
