@@ -2,5 +2,20 @@
     "java.compile.nullAnalysis.mode": "automatic",
     "java.configuration.updateBuildConfiguration": "automatic",
     "java.debug.settings.onBuildFailureProceed": true,
-    "java.format.settings.url": ".vscode/java-formatter.xml"
+    "java.format.settings.url": ".vscode/java-formatter.xml",
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": false
+    },
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["J"],
+            "after": ["1", "0", "j"]
+        },
+        {
+            "before": ["K"],
+            "after": ["1", "0", "k"]
+        }
+    ]
 }

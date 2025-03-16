@@ -55,6 +55,7 @@ public class MyHashSetLinearProbing<E> implements MySet<E> {
      *
      * @return true if e is a new object, false if e was already in the set
      */
+    @Override
     public boolean add(E e) {
         if (contains(e)) {
             return false;

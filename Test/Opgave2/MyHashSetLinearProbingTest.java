@@ -10,6 +10,7 @@ public class MyHashSetLinearProbingTest {
     private MyHashSetLinearProbing<String> set;
 
     @BeforeEach
+    @SuppressWarnings("unused")
     void setUp() {
         set = new MyHashSetLinearProbing<>(10);
     }
