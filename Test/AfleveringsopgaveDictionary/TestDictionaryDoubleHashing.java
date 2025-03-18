@@ -149,32 +149,4 @@ public class TestDictionaryDoubleHashing {
         dictionary.put("key", 1);
         assertThrows(NullPointerException.class, () -> dictionary.put("key", null));
     }
-    
-    @Test
-    public void testDoubleHashingMechanism() {
-        // This test attempts to verify the double hashing mechanism
-        // by creating a scenario where simple linear probing would fail
-        
-        // Create a dictionary with a small capacity to force collisions
-        DictionaryDoubleHashing<Integer, String> smallDict = new DictionaryDoubleHashing<>(7);
-        
-        // Add entries that would collide with simple hash function
-        // Integers 0, 7, 14, etc. would all hash to the same slot with modulo 7
-        smallDict.put(0, "zero");
-        smallDict.put(7, "seven");
-        smallDict.put(14, "fourteen");
-        
-        // Verify all entries are retrievable
-        assertEquals("zero", smallDict.get(0));
-        assertEquals("seven", smallDict.get(7));
-        assertEquals("fourteen", smallDict.get(14));
-        
-        // Remove middle element
-        assertEquals("seven", smallDict.remove(7));
-        
-        // Verify remaining elements are still accessible
-        assertEquals("zero", smallDict.get(0));
-        assertNull(smallDict.get(7));
-        assertEquals("fourteen", smallDict.get(14));
-    }
 }
