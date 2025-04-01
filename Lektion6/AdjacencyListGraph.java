@@ -2,11 +2,11 @@ import java.util.*;
 
 public class AdjacencyListGraph<V> implements Graph<V> {
     // List with all the vertices in the graph.
-    private List<V> vertices;
+    private final List<V> vertices;
     // Map with pairs containing (vertex, list of edges),
     // where list of edges is the incident edges to the vertex.
     // Note: Each edge is in 2 lists of incident edges.
-    private Map<V, List<Edge<V>>> edges = new HashMap();
+    private final Map<V, List<Edge<V>>> edges;
 
     /**
      * Construct an empty graph
@@ -52,30 +52,30 @@ public class AdjacencyListGraph<V> implements Graph<V> {
     @Override
     /** Return the neighbors of the specified vertex */
     public List<V> neighbors(V v) {
-       // TODO
-        return null;
+        List<V> neighbors = new ArrayList<>();
+        for (Edge<V> edge : edges.get(v)) {
+            neighbors.add(edge.getU());
+        }
+        return neighbors;
     }
 
 
     @Override
     /** Return the incident edges of vertex v */
     public List<Edge<V>> incidentEdges(V v) {
-        //TODO
-        return null;
+        return edges.get(v);
     }
 
     @Override
     /** Return the degree for a specified vertex */
     public int degree(V v) {
-        //TODO
-        return -1;
+        return edges.get(v).size();
     }
 
     @Override
 
     public boolean areAdjacent(V v, V u) {
-        //TODO
-        return false;
+        return edges.get(v).contains(u);
     }
 
 
