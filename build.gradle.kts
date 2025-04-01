@@ -36,7 +36,7 @@ java {
         setSrcDirs(listOf("Application/resources"))
     }
     sourceSets["test"].java {
-        setSrcDirs(listOf("Test/AfleveringsopgaveDictionary"))
+        setSrcDirs(listOf("Test/Lektion5"))
     }
 }
 
@@ -48,5 +48,5 @@ tasks.test {
 }
 
 application {
-    mainClass.set("Opgave2.DictionaryDemo")
+    mainClass.set("TEST")
 }

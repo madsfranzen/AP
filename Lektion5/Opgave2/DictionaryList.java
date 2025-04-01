@@ -18,7 +18,6 @@ public class DictionaryList<K, V> implements Dictionary<K, V> {
     }
 
     public class KeyValuePair {
-
         private K key;
         private V value;
 
