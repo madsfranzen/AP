@@ -79,7 +79,7 @@ public class AdjacencyMatrixGraph<V> implements Graph<V> {
                     }
                 }
             }
-            
+
             // Check column (incoming edges) if different from row check
             if (i != index && matrix[i][index] != null && matrix[index][i] == null) {
                 // Find the vertex with this index
@@ -91,7 +91,6 @@ public class AdjacencyMatrixGraph<V> implements Graph<V> {
                 }
             }
         }
-        
         return neighbors;
     }
 
@@ -103,25 +102,25 @@ public class AdjacencyMatrixGraph<V> implements Graph<V> {
     public List<Edge<V>> incidentEdges(V v) {
         List<Edge<V>> result = new ArrayList<>();
         Integer index = vertices.get(v);
-        
+
         if (index == null) {
             return result; // Vertex not in graph
         }
-        
+
         // Check row (outgoing edges)
         for (int i = 0; i < vertexNr; i++) {
             if (matrix[index][i] != null) {
                 result.add(matrix[index][i]);
             }
         }
-        
+
         // Check column (incoming edges) if different from row check
         for (int i = 0; i < vertexNr; i++) {
             if (i != index && matrix[i][index] != null && matrix[index][i] == null) {
                 result.add(matrix[i][index]);
             }
         }
-        
+
         return result;
     }
 
@@ -141,11 +140,11 @@ public class AdjacencyMatrixGraph<V> implements Graph<V> {
     public boolean areAdjacent(V v, V u) {
         Integer indexV = vertices.get(v);
         Integer indexU = vertices.get(u);
-        
+
         if (indexV == null || indexU == null) {
             return false;
         }
-        
+
         return matrix[indexV][indexU] != null || matrix[indexU][indexV] != null;
     }
 
@@ -154,7 +153,7 @@ public class AdjacencyMatrixGraph<V> implements Graph<V> {
     public void printGraph() {
         System.out.println("Vertices: " + vertices.keySet());
         System.out.println("Edges:");
-        
+
         for (int i = 0; i < vertexNr; i++) {
             for (int j = 0; j < vertexNr; j++) {
                 if (matrix[i][j] != null) {
@@ -195,7 +194,7 @@ public class AdjacencyMatrixGraph<V> implements Graph<V> {
     public void addEdge(V v, V u, int e) {
         Integer indexV = vertices.get(v);
         Integer indexU = vertices.get(u);
-        
+
         if (indexV != null && indexU != null && matrix[indexV][indexU] == null) {
             Edge<V> edge = new Edge<>(v, u, e);
             matrix[indexV][indexU] = edge;
@@ -210,11 +209,11 @@ public class AdjacencyMatrixGraph<V> implements Graph<V> {
      */
     public void removeVertex(V v) {
         Integer index = vertices.get(v);
-        
+
         if (index == null) {
             return; // Vertex not in graph
         }
-        
+
         // Remove all edges containing this vertex
         for (int i = 0; i < vertexNr; i++) {
             if (matrix[index][i] != null) {
@@ -223,10 +222,10 @@ public class AdjacencyMatrixGraph<V> implements Graph<V> {
                 numEdges--;
             }
         }
-        
+
         // Remove the vertex from the map
         vertices.remove(v);
-        
+
         // Need to shift all vertices with higher indices down by 1
         Map<V, Integer> newVertices = new HashMap<>();
         for (Map.Entry<V, Integer> entry : vertices.entrySet()) {
@@ -237,26 +236,26 @@ public class AdjacencyMatrixGraph<V> implements Graph<V> {
             }
         }
         vertices = newVertices;
-        
+
         // Need to compact the matrix by removing the row and column
         for (int i = index; i < vertexNr - 1; i++) {
             for (int j = 0; j < vertexNr; j++) {
                 matrix[i][j] = matrix[i + 1][j];
             }
         }
-        
+
         for (int j = index; j < vertexNr - 1; j++) {
             for (int i = 0; i < vertexNr; i++) {
                 matrix[i][j] = matrix[i][j + 1];
             }
         }
-        
+
         // Clear the last row and column
         for (int i = 0; i < vertexNr; i++) {
             matrix[i][vertexNr - 1] = null;
             matrix[vertexNr - 1][i] = null;
         }
-        
+
         vertexNr--;
     }
 
@@ -269,7 +268,7 @@ public class AdjacencyMatrixGraph<V> implements Graph<V> {
     public void removeEdge(V v, V u) {
         Integer indexV = vertices.get(v);
         Integer indexU = vertices.get(u);
-        
+
         if (indexV != null && indexU != null) {
             if (matrix[indexV][indexU] != null) {
                 matrix[indexV][indexU] = null;

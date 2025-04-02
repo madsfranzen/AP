@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class EdgeListGraph<V> implements Graph<V> {
@@ -40,10 +39,11 @@ public class EdgeListGraph<V> implements Graph<V> {
         return new ArrayList<Edge<V>>(edges);
     }
 
+
     @Override
     /**
-     * Return a list with the neighbors of the specified vertex. Pre: The vertex is
-     * in the graph.
+     * Return a list with the neighbors of the specified vertex.
+     * Pre: The vertex is in the graph.
      */
     public List<V> neighbors(V v) {
         List<V> result = new ArrayList<>();
@@ -57,10 +57,11 @@ public class EdgeListGraph<V> implements Graph<V> {
         return result;
     }
 
+
     @Override
     /**
-     * Return the incident edges to the specified vertex. Pre: The vertex is in the
-     * graph.
+     * Return the incident edges to the specified vertex.
+     * Pre: The vertex is in the graph.
      */
     public List<Edge<V>> incidentEdges(V v) {
         List<Edge<V>> result = new ArrayList<>();
@@ -76,7 +77,8 @@ public class EdgeListGraph<V> implements Graph<V> {
 
     @Override
     /**
-     * Return the degree for the specified vertex. Pre: The vertex is in the graph.
+     * Return the degree for the specified vertex.
+     * Pre: The vertex is in the graph.
      */
     public int degree(V v) {
         return neighbors(v).size();
@@ -84,22 +86,13 @@ public class EdgeListGraph<V> implements Graph<V> {
 
     @Override
     /**
-     * Return true, if the specified vertices are neighbors. Pre: The vertices are
-     * vertices in the graph.
+     * Return true, if the specified vertices are neighbors.
+     * Pre: The vertices are vertices in the graph.
      */
     public boolean areAdjacent(V v, V u) {
-        boolean areAdjacent = false;
-        int i = 0;
-        while (!areAdjacent && i < edges.size()) {
-            Edge<V> edge = edges.get(i);
-            if (edge.getU().equals(u) && edge.getV().equals(v)) {
-                areAdjacent = true;
-            } else if (edge.getU().equals(v) && edge.getV().equals(u)) {
-                areAdjacent = true;
-            }
-            i++;
-        }
-        return areAdjacent;
+       // TODO
+        // Implementation left as an exercise
+        return  false;
     }
 
     @Override
@@ -109,22 +102,24 @@ public class EdgeListGraph<V> implements Graph<V> {
         System.out.println("Edges: " + edges);
     }
 
+
+
     @Override
     /**
-     * Add a vertex to the graph. Pre: The vertex is not in the graph before this
-     * addition.
-     */
+     * Add a vertex to the graph.
+     * Pre: The vertex is not in the graph before this addition.     */
     public void addVertex(V v) {
         if (!vertices.contains(v)) {
             vertices.add(v);
         }
     }
 
+
+
     @Override
     /**
-     * Add an edge with weight 0 between the specified vertices to the graph. Pre:
-     * Before addition, the vertices are in the graph, and the edge is not in the
-     * graph.
+     * Add an edge with weight 0 between the specified vertices to the graph.
+     * Pre: Before addition, the vertices are in the graph, and the edge is not in the graph.
      */
     public void addEdge(V v, V u) {
         addEdge(v, u, 0);
@@ -132,9 +127,9 @@ public class EdgeListGraph<V> implements Graph<V> {
 
     @Override
     /**
-     * Add an edge with the specified weight between the specified vertices to the
-     * graph. Pre: Before addition, the vertices are in the graph, and the edge is
-     * not in the graph. Pre: The weight is not negative.
+     * Add an edge with the specified weight between the specified vertices to the graph.
+     * Pre: Before addition, the vertices are in the graph, and the edge is not in the graph.
+     * Pre: The weight is not negative.
      */
     public void addEdge(V v, V u, int e) {
         edges.add(new Edge<V>(v, u, e));
@@ -142,28 +137,25 @@ public class EdgeListGraph<V> implements Graph<V> {
 
     @Override
     /**
-     * Remove the specified vertex from the graph. Pre: The vertex is in the graph
+     * Remove the specified vertex from the graph.
+     * Pre: The vertex is in the graph
      */
     public void removeVertex(V v) {
-        removeEdge(v, v);
-        vertices.removeIf(vertex -> vertex.equals(v));
+        // TODO
+    // Implementation left as an exercise
     }
 
     @Override
     /**
-     * Remove the edge between the specified vertices from the graph. Pre: The
-     * vertices are vertices in the graph, and The graph has an edge between the
-     * vertices.
+     * Remove the edge between the specified vertices from the graph.
+     * Pre: The vertices are vertices in the graph,
+     *   and The graph has an edge between the vertices.
      */
     public void removeEdge(V v, V u) {
-        Iterator<Edge<V>> iterator = edges.iterator();
-        while (iterator.hasNext()) {
-            Edge<V> e = iterator.next();
-            if (e.getV().equals(v) && e.getU().equals(u)) {
-                iterator.remove();
-            } else if (e.getU().equals(v) && e.getV().equals(u)) {
-                iterator.remove();
-            }
-        }
+        // TODO
+   // Implementation left as an exercise
     }
+
+
 }
+
