@@ -16,3 +16,7 @@ bin/
 *.iws
 *.ipr
 .settings/
+.gradle/8.8
+
+.DS_Store
+kls_database.db
