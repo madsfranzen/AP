@@ -2,18 +2,25 @@ package CarSales;
 
 public abstract class Extra extends Car {
 
-	private double price;
 	private String description;
 	private Car wrappedObj;
 
-	public Extra(double price, String description, Car wrappedObj) {
+	public Extra(double price, String model, Car wrappedObj) {
+		super(price, model);
 		this.wrappedObj = wrappedObj;
-		this.price = price;
-		this.description = description;
+		generateDescription();
+	}
+
+	private void generateDescription() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(wrappedObj.getDescription());
+		sb.append("\n");
+		sb.append(this.toString());
+		this.description = sb.toString();
 	}
 
 	public double getPrice() {
-		return price;
+		return super.getPrice();
 	}
 
 	public String getDescription() {

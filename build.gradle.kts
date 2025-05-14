@@ -48,5 +48,5 @@ tasks.test {
 }
 
 application {
-    mainClass.set("AnvendCounter")
+    mainClass.set("CarSales.CarApp")
 }
