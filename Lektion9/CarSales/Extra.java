@@ -23,5 +23,4 @@ public abstract class Extra extends Car {
 	public Car getWrappedObj() {
 		return wrappedObj;
 	}
-
 }
