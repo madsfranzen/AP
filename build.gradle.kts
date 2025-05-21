@@ -30,7 +30,7 @@ java {
         languageVersion.set(JavaLanguageVersion.of(23))
     }
     sourceSets["main"].java {
-        setSrcDirs(listOf("Lektion9"))
+        setSrcDirs(listOf("Lektion11"))
     }
     sourceSets["main"].resources {
         setSrcDirs(listOf("Application/resources"))
@@ -48,5 +48,5 @@ tasks.test {
 }
 
 application {
-    mainClass.set("CarSales.CarApp")
+    mainClass.set("personcollection.App")
 }
